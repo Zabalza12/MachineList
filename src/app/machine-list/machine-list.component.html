@@ -1,0 +1,27 @@
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngIf="!noMachines; else getError" class="inner">
+                <h3 class="text-light">Machines</h3>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Machine Name</th>
+                            <th scope="col">Manufacturer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let machine of machines">
+                            <th scope="row">{{machine.name}}</th>
+                            <td>{{machine.manufacturer}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #getError>
+                <h3 class="text-light">Something went wrong</h3>
+                <span class="text-light">{{error}}</span>
+            </ng-template>
+        </div>
+    </div>
+</div>
